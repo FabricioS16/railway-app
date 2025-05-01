@@ -1,4 +1,3 @@
-// Ejemplo de cómo debería estar configurado tu archivo app.js o server.js
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -15,7 +14,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Importar rutas
 const vendedoresRoutes = require("./routes/vendedores");
 
-// Registrar rutas - ASEGÚRATE QUE ESTA LÍNEA EXISTA EN TU ARCHIVO PRINCIPAL
+// Registrar rutas
 app.use("/vendedores", vendedoresRoutes);
 
 // Ruta para la página principal
@@ -30,7 +29,7 @@ app.use((req, res, next) => {
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
